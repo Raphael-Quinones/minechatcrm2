@@ -6,7 +6,7 @@ import OpenAI from "openai";
 
 // IMPORTANT! Set the runtime to edge
 //export const runtime = "edge";
-export const maxDuration = 60;
+export const maxDuration = 59;
 
 export async function POST(req: Request) {
   // Extract the `prompt` from the body of the request
