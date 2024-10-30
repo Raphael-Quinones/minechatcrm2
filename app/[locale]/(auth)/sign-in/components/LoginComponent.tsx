@@ -104,6 +104,7 @@ export function LoginComponent() {
       setIsLoading(false);
     }
   };
+  
   //Login with username(email)/password
   async function onSubmit(data: LoginFormValues) {
     setIsLoading(true);
@@ -114,7 +115,7 @@ export function LoginComponent() {
         password: data.password,
         callbackUrl: process.env.NEXT_PUBLIC_APP_URL,
       });
-      //console.log(status, "status");
+
       if (status?.error) {
         toast({
           variant: "destructive",
@@ -123,10 +124,10 @@ export function LoginComponent() {
         });
       }
       if (status?.ok) {
-        // console.log("Status OK");
         toast({
           description: "Login successful.",
         });
+        router.push("/");
       }
     } catch (error: any) {
       console.log(error);
@@ -137,7 +138,6 @@ export function LoginComponent() {
       });
     } finally {
       setIsLoading(false);
-      router.push("/");
     }
   }
 
