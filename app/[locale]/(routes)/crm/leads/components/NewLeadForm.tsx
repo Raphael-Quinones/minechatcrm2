@@ -158,7 +158,7 @@ export function NewLeadForm({ users, accounts }: NewTaskFormProps) {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      placeholder="NextCRM Inc."
+                      placeholder="MinechatCRM Inc."
                       {...field}
                     />
                   </FormControl>
@@ -223,7 +223,7 @@ export function NewLeadForm({ users, accounts }: NewTaskFormProps) {
                   <FormControl>
                     <Textarea
                       disabled={isLoading}
-                      placeholder="New NextCRM functionality"
+                      placeholder="New MinechatCRM functionality"
                       {...field}
                     />
                   </FormControl>
