@@ -24,16 +24,6 @@ const Footer = async () => {
         <Link href={"https://ui.shadcn.com/"}>
           <span className="rounded-md mr-2">shadcnUI</span>
         </Link>{" "}
-        hosted by:
-        <span className="text-bold underline">
-          <Link href="https://www.vercel.com">Vercel</Link>
-        </span>
-      </div>
-      <div className="hidden md:flex space-x-2">
-        Supported by:
-        <Link className="pl-1 font-bold" href="https://www.softbase.cz">
-          SoftBase s.r.o.
-        </Link>
       </div>
     </footer>
   );
