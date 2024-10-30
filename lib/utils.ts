@@ -47,3 +47,10 @@ export function generateRandomPassword() {
 
   return password;
 }
+
+export const isAuthProviderEnabled = (provider: 'github' | 'google'): boolean => {
+  const envVar = provider === 'github' 
+    ? process.env.NEXT_PUBLIC_GITHUB_LOGIN_ENABLED 
+    : process.env.NEXT_PUBLIC_GOOGLE_LOGIN_ENABLED;
+  return envVar === 'true';
+};

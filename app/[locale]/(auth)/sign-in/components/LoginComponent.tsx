@@ -172,23 +172,28 @@ export function LoginComponent() {
         <CardDescription>Click here to login with: </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
-        <div className="grid grid-cols-2 gap-6">
-          <Button variant="outline" onClick={loginWithGitHub}>
-            <Icons.gitHub className="mr-2 h-4 w-4" />
-            Github
-          </Button>
-          <Button
-            variant="outline"
-            onClick={loginWithGoogle}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <Icons.google className="mr-2 h-4 w-4 animate-spin" />
-            ) : (
-              <Icons.google className="mr-2 h-4 w-4" />
-            )}{" "}
-            Google
-          </Button>
+        <div className={process.env.NEXT_PUBLIC_GITHUB_LOGIN_ENABLED === 'true' ? "grid grid-cols-2 gap-6" : "grid grid-cols-1"}>
+          {process.env.NEXT_PUBLIC_GITHUB_LOGIN_ENABLED === 'true' && (
+            <Button variant="outline" onClick={loginWithGitHub}>
+              <Icons.gitHub className="mr-2 h-4 w-4" />
+              Github
+            </Button>
+          )}
+          {process.env.NEXT_PUBLIC_GOOGLE_LOGIN_ENABLED === 'true' && (
+            <Button
+              variant="outline"
+              onClick={loginWithGoogle}
+              disabled={isLoading}
+              className={process.env.NEXT_PUBLIC_GITHUB_LOGIN_ENABLED === 'true' ? "" : "w-full"}
+            >
+              {isLoading ? (
+                <Icons.google className="mr-2 h-4 w-4 animate-spin" />
+              ) : (
+                <Icons.google className="mr-2 h-4 w-4" />
+              )}{" "}
+              Google
+            </Button>
+          )}
         </div>
         <div className="relative">
           <div className="absolute inset-0 flex items-center">

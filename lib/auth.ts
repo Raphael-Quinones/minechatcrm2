@@ -23,30 +23,29 @@ function getGoogleCredentials(): { clientId: string; clientSecret: string } {
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.JWT_SECRET,
-  //adapter: PrismaAdapter(prismadb),
   session: {
     strategy: "jwt",
   },
-
   providers: [
-    GoogleProvider({
-      clientId: getGoogleCredentials().clientId,
-      clientSecret: getGoogleCredentials().clientSecret,
-    }),
-
-    GitHubProvider({
-      name: "github",
-      clientId: process.env.GITHUB_ID!,
-      clientSecret: process.env.GITHUB_SECRET!,
-    }),
-
+    ...(process.env.NEXT_PUBLIC_GOOGLE_LOGIN_ENABLED === 'true' 
+      ? [GoogleProvider({
+          clientId: getGoogleCredentials().clientId,
+          clientSecret: getGoogleCredentials().clientSecret,
+        })]
+      : []),
+    ...(process.env.NEXT_PUBLIC_GITHUB_LOGIN_ENABLED === 'true'
+      ? [GitHubProvider({
+          name: "github",
+          clientId: process.env.GITHUB_ID!,
+          clientSecret: process.env.GITHUB_SECRET!,
+        })]
+      : []),
     CredentialsProvider({
       name: "credentials",
       credentials: {
         email: { label: "email", type: "text" },
         password: { label: "password", type: "password" },
       },
-
       async authorize(credentials) {
         // console.log(credentials, "credentials");
         if (!credentials?.email || !credentials?.password) {
