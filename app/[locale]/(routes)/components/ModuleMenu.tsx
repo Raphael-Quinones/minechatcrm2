@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 import ProjectModuleMenu from "./menu-items/Projects";
 import SecondBrainModuleMenu from "./menu-items/SecondBrain";
@@ -44,12 +45,18 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
       >
         <div className="flex gap-x-4 items-center">
           <div
-            className={`cursor-pointer duration-500 border rounded-full px-4 py-2 ${
+            className={`cursor-pointer duration-500 border rounded-full p-2 ${
               open && "rotate-[360deg]"
             }`}
             onClick={() => setOpen(!open)}
           >
-            M
+            <Image
+              src="/favicon.ico"
+              alt="Menu Toggle"
+              width={16}
+              height={16}
+              className="w-4 h-4"
+            />
           </div>
 
           <h1
