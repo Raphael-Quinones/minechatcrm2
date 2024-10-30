@@ -49,7 +49,7 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
             }`}
             onClick={() => setOpen(!open)}
           >
-            N
+            M
           </div>
 
           <h1
