@@ -84,7 +84,7 @@ const CreateContractForm = ({
       description=""
       onClose={closeRef}
     >
-      <form action={onAction} className="space-y-4">
+      <form action={onAction} className="space-y-4 max-h-[90vh] overflow-y-auto">
         <FormInput id="title" label="Title" type="text" errors={fieldErrors} />
         <FormInput id="value" label="Value" type="text" errors={fieldErrors} />
         <FormDatePicker
@@ -141,7 +141,7 @@ const CreateContractForm = ({
           {isLoading ? (
             <Loader2 className="h-6 w-6  animate-spin" />
           ) : (
-            "Vytvořit"
+            "Submit"
           )}
         </FormSubmit>
       </form>
