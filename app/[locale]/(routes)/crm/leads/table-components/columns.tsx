@@ -13,68 +13,6 @@ import moment from "moment";
 
 export const columns: ColumnDef<Lead>[] = [
   {
-    accessorKey: "createdAt",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Expected close" />
-    ),
-    cell: ({ row }) => (
-      <div className="w-[80px]">
-        {moment(row.getValue("createdAt")).format("YY-MM-DD")}
-      </div>
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "updatedAt",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Last update" />
-    ),
-    cell: ({ row }) => (
-      <div className="w-[80px]">
-        {moment(row.getValue("updatedAt")).format("YY-MM-DD")}
-      </div>
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "assigned_to_user",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Assigned to" />
-    ),
-
-    cell: ({ row }) => (
-      <div className="w-[150px]">
-        {
-          //@ts-ignore
-          //TODO: fix this
-          row.getValue("assigned_to_user")?.name ?? "Unassigned"
-        }
-      </div>
-    ),
-    enableSorting: true,
-    enableHiding: true,
-  },
-  {
-    accessorKey: "company",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Company" />
-    ),
-
-    cell: ({ row }) => (
-      <div className="">
-        {
-          //@ts-ignore
-          //TODO: fix this
-          row.getValue("company") ?? "Unassigned"
-        }
-      </div>
-    ),
-    enableSorting: false,
-    enableHiding: true,
-  },
-  {
     accessorKey: "firstName",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Name" />
@@ -107,8 +45,26 @@ export const columns: ColumnDef<Lead>[] = [
     ),
 
     cell: ({ row }) => <div className="w-[150px]">{row.getValue("phone")}</div>,
-    enableSorting: false,
+    enableSorting: true,
     enableHiding: false,
+  },
+  {
+    accessorKey: "company",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Company" />
+    ),
+
+    cell: ({ row }) => (
+      <div className="">
+        {
+          //@ts-ignore
+          //TODO: fix this
+          row.getValue("company") ?? "Unassigned"
+        }
+      </div>
+    ),
+    enableSorting: false,
+    enableHiding: true,
   },
   {
     accessorKey: "status",
@@ -136,6 +92,32 @@ export const columns: ColumnDef<Lead>[] = [
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
     },
+  },
+  {
+    accessorKey: "updatedAt",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Last update" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[80px]">
+        {moment(row.getValue("updatedAt")).format("YY-MM-DD")}
+      </div>
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "description",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Description" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[200px] truncate">
+        {row.getValue("description") || "No description"}
+      </div>
+    ),
+    enableSorting: false,
+    enableHiding: true,
   },
   {
     id: "actions",
