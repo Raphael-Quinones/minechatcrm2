@@ -115,10 +115,10 @@ export function NewOpportunityForm({
     currency: z.string(),
     expected_revenue: z.string(),
     next_step: z.string(),
-    assigned_to: z.string(),
-    account: z.string(),
-    contact: z.string(),
-    campaign: z.string(),
+    assigned_to: z.string().optional(),
+    account: z.string().optional(),
+    contact: z.string().optional(),
+    campaign: z.string().optional(),
   });
 
   type NewAccountFormValues = z.infer<typeof formSchema>;

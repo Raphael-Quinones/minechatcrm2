@@ -20,6 +20,11 @@ export const getOpportunitiesFull = async () => {
           name: true,
         },
       },
+      assigned_type: {
+        select: {
+          name: true,
+        },
+      },
     },
     orderBy: {
       created_on: "desc",

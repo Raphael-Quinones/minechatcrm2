@@ -15,6 +15,9 @@ export const opportunitySchema = z.object({
   assigned_account: z.object({}).optional().nullable(),
   assigned_sales_stage: z.object({}).optional().nullable(),
   assigned_to_user: z.object({}).optional().nullable(),
+  assigned_type: z.object({
+    name: z.string(),
+  }).optional().nullable(),
 });
 
 export type Opportunity = z.infer<typeof opportunitySchema>;

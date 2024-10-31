@@ -36,55 +36,6 @@ export const columns: ColumnDef<Opportunity>[] = [
   },
   */
   {
-    accessorKey: "close_date",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Expected close" />
-    ),
-    cell: ({ row }) => (
-      <div className="w-[80px]">
-        {moment(row.getValue("close_date")).format("YY-MM-DD")}
-      </div>
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "assigned_to_user",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Assigned to" />
-    ),
-
-    cell: ({ row }) => (
-      <div className="w-[150px]">
-        {
-          //@ts-ignore
-          //TODO: fix this
-          row.getValue("assigned_to_user")?.name ?? "Unassigned"
-        }
-      </div>
-    ),
-    enableSorting: true,
-    enableHiding: true,
-  },
-  {
-    accessorKey: "assigned_account",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Assigned account" />
-    ),
-
-    cell: ({ row }) => (
-      <div className="w-[250px]">
-        {
-          //@ts-ignore
-          //TODO: fix this
-          row.getValue("assigned_account")?.name ?? "Unassigned"
-        }
-      </div>
-    ),
-    enableSorting: false,
-    enableHiding: true,
-  },
-  {
     accessorKey: "name",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Name" />
@@ -94,6 +45,43 @@ export const columns: ColumnDef<Opportunity>[] = [
       <Link href={`/crm/opportunities/${row.original.id}`}>
         <div className="w-[250px] overflow-hidden">{row.getValue("name")}</div>
       </Link>
+    ),
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    accessorKey: "description",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Description" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[250px] truncate">{row.getValue("description") || "No description"}</div>
+    ),
+    enableSorting: false,
+    enableHiding: true,
+  },
+  {
+    accessorKey: "type",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Sales Type" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[150px]">
+        {row.original.assigned_type?.name || "Not specified"}
+      </div>
+    ),
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    accessorKey: "sales_stage",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Stage" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[150px]">
+        {row.original.assigned_sales_stage?.name || "Not set"}
+      </div>
     ),
     enableSorting: true,
     enableHiding: true,
@@ -119,6 +107,48 @@ export const columns: ColumnDef<Opportunity>[] = [
     },
     enableSorting: true,
     enableHiding: true,
+  },
+  {
+    accessorKey: "currency",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Currency" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[80px]">{row.getValue("currency") || "USD"}</div>
+    ),
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    accessorKey: "expected_revenue",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Expected Revenue" />
+    ),
+    cell: ({ row }) => (
+      <div>
+        {row.original.expected_revenue
+          ? row.original.expected_revenue.toLocaleString("en-US", {
+              style: "currency",
+              currency: row.original.currency || "USD",
+            })
+          : "N/A"}
+      </div>
+    ),
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    accessorKey: "close_date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Expected close" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[80px]">
+        {moment(row.getValue("close_date")).format("YY-MM-DD")}
+      </div>
+    ),
+    enableSorting: false,
+    enableHiding: false,
   },
   {
     accessorKey: "next_step",
