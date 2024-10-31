@@ -225,6 +225,7 @@ model crm_Contracts {
   companySignedDate   DateTime?            @db.Date
   description         String?
   account             String?              @db.ObjectId
+  lead_name           String?              
   assigned_to         String?              @db.ObjectId
   createdAt           DateTime?            @default(now()) @db.Date
   createdBy           String?              @db.ObjectId

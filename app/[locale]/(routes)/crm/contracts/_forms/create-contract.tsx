@@ -84,7 +84,7 @@ const CreateContractForm = ({
       description=""
       onClose={closeRef}
     >
-      <form action={onAction} className="space-y-4 max-h-[90vh] overflow-y-auto">
+      <form action={onAction} className="space-y-4">
         <FormInput id="title" label="Title" type="text" errors={fieldErrors} />
         <FormInput id="value" label="Value" type="text" errors={fieldErrors} />
         <FormDatePicker
