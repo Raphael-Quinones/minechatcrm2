@@ -123,7 +123,11 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
           ) ? (
             <ChatGPTModuleMenu open={open} />
           ) : null}
-          <AdministrationMenu open={open} title={dict.ModuleMenu.settings} />
+          {modules.find(
+            (menuItem: any) => menuItem.name === "administration" && menuItem.enabled
+          ) ? (
+            <AdministrationMenu open={open} title={dict.ModuleMenu.settings} />
+          ) : null}
         </div>
       </div>
       <div
