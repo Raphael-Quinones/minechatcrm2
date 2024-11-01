@@ -221,7 +221,7 @@ export function MyAccountSettingsForm({ initialData }: UpdateAccountFormProps) {
                       <FormControl>
                         <Input
                           disabled={isLoading}
-                          placeholder="MinechatCRM Inc."
+                          placeholder="Minechat AI CRM Inc."
                           {...field}
                         />
                       </FormControl>

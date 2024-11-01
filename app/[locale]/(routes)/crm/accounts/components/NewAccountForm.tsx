@@ -114,7 +114,7 @@ export function NewAccountForm({ industries, users, onFinish }: Props) {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      placeholder="MinechatCRM Inc."
+                      placeholder="Minechat AI CRM Inc."
                       {...field}
                     />
                   </FormControl>

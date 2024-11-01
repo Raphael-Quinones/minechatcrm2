@@ -34,8 +34,8 @@ export const InviteUserEmail = ({
 }: VercelInviteUserEmailProps) => {
   const previewText =
     userLanguage === "en"
-      ? `You have been invited by ${invitedByUsername} to MinechatCRM app`
-      : `Byl jste pozván uživatelem ${invitedByUsername} do aplikace MinechatCRM`;
+      ? `You have been invited by ${invitedByUsername} to Minechat AI CRM app`
+      : `Byl jste pozván uživatelem ${invitedByUsername} do aplikace Minechat AI CRM`;
 
   return (
     <Html>

@@ -176,7 +176,7 @@ export function UpdateLeadForm({ initialData, setOpen }: NewTaskFormProps) {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      placeholder="MinechatCRM Inc."
+                      placeholder="Minechat AI CRM Inc."
                       {...field}
                     />
                   </FormControl>
@@ -241,7 +241,7 @@ export function UpdateLeadForm({ initialData, setOpen }: NewTaskFormProps) {
                   <FormControl>
                     <Textarea
                       disabled={isLoading}
-                      placeholder="New MinechatCRM functionality"
+                      placeholder="New Minechat AI CRM functionality"
                       {...field}
                     />
                   </FormControl>

@@ -152,7 +152,7 @@ export function UpdateOpportunityForm({
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      placeholder="New MinechatCRM functionality"
+                      placeholder="New Minechat AI CRM functionality"
                       {...field}
                     />
                   </FormControl>
@@ -210,7 +210,7 @@ export function UpdateOpportunityForm({
                   <FormControl>
                     <Textarea
                       disabled={isLoading}
-                      placeholder="New MinechatCRM functionality"
+                      placeholder="New Minechat AI CRM functionality"
                       {...field}
                     />
                   </FormControl>

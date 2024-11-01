@@ -28,7 +28,7 @@ const AdminPage = async () => {
   return (
     <Container
       title="Administration"
-      description={"Here you can setup your MinechatCRM instance"}
+      description={"Here you can setup your Minechat AI CRM instance"}
     >
       <div className="space-x-2">
         <Button asChild>

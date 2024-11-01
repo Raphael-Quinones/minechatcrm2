@@ -70,20 +70,20 @@ export default async function RootLayout({
         />
         <meta property="og:url" content="https://www.nextcrm.io" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="MinechatCRM" />
+        <meta property="og:title" content="Minechat AI CRM" />
         <meta
           property="og:description"
-          content="MinechatCRM is an open source CRM build on top of NextJS. Technology stack: NextJS with Typescrtipt, MongoDB, TailwindCSS, React, Prisma, shadCN, resend.com, react.email and more."
+          content="Minechat AI CRM is an open source CRM build on top of NextJS. Technology stack: NextJS with Typescrtipt, MongoDB, TailwindCSS, React, Prisma, shadCN, resend.com, react.email and more."
         />
         <meta property="og:image" content="https://nextcrm.io/api/og" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="nextcrm.io" />
         <meta property="twitter:url" content="https://www.nextcrm.io" />
-        <meta name="twitter:title" content="MinechatCRM" />
+        <meta name="twitter:title" content="Minechat AI CRM" />
         <meta
           name="twitter:description"
-          content="MinechatCRM is an open source CRM build on top of NextJS. Technology stack: NextJS with Typescrtipt, MongoDB, TailwindCSS, React, Prisma, shadCN, resend.com, react.email and more."
+          content="Minechat AI CRM is an open source CRM build on top of NextJS. Technology stack: NextJS with Typescrtipt, MongoDB, TailwindCSS, React, Prisma, shadCN, resend.com, react.email and more."
         />
         <meta name="twitter:image" content="https://nextcrm.io/api/og" />
       </head>

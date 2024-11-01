@@ -52,10 +52,10 @@ export async function POST(req: Request) {
       });
     } else {
       const data = await resend.emails.send({
-        from: "MinechatCRM <info@nextcrm.io>",
+        from: "Minechat AI CRM <info@nextcrm.io>",
         to: user.email,
         //to: ["pavel@dovhomilja.cz"],
-        subject: "MinechatCRM - Password reset",
+        subject: "Minechat AI CRM - Password reset",
         text: "", // Add this line to fix the types issue
         //react: DemoTemplate({ firstName: "John" }),
         react: PasswordResetEmail({

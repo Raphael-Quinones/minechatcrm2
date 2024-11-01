@@ -87,7 +87,7 @@ export function SetLanguage({ userId }: Props) {
     return (
       <LoadingModal
         isOpen={isLoading}
-        description="Changing MinechatCRM language"
+        description="Changing Minechat AI CRM language"
       />
     );
   }

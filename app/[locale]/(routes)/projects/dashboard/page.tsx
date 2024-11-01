@@ -25,7 +25,7 @@ const ProjectDashboard = async () => {
     <Container
       title="Dashboard"
       description={
-        "Welcome to MinechatCRM cockpit, here you can see your company overview"
+        "Welcome to Minechat AI CRM cockpit, here you can see your company overview"
       }
     >
       <ProjectDashboardCockpit

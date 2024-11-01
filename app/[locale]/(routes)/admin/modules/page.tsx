@@ -28,7 +28,7 @@ const AdminModulesPage = async () => {
   return (
     <Container
       title="Modules administration"
-      description={"Here you can manage your MinechatCRM modules"}
+      description={"Here you can manage your Minechat AI CRM modules"}
     >
       <DataTable columns={columns} data={modules} search="name" />
     </Container>

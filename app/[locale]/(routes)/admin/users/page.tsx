@@ -33,11 +33,11 @@ const AdminUsersPage = async () => {
   return (
     <Container
       title="Users administration"
-      description={"Here you can manage your MinechatCRM users"}
+      description={"Here you can manage your Minechat AI CRM users"}
     >
       <div className="flex-col1">
         <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-          Invite new user to MinechatCRM
+          Invite new user to Minechat AI CRM
         </h4>
         <InviteForm />
       </div>

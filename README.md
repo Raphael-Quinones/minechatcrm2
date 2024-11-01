@@ -1,5 +1,5 @@
 <a href="https://nextcrm.app/">
-  <h1 align="center">MinechatCRM</h1>
+  <h1 align="center">Minechat AI CRM</h1>
 </a>
 
 <p align="center">
@@ -7,7 +7,7 @@
 </p>
 
 <!-- <p align="center">
-MinechatCRM is a CRM build on top of the Next.JS 14 using TypeScript, great UI library shadcn, Prisma and MongoDB as a database. Upload things as a S3 blob for document storage.
+Minechat AI CRM is a CRM build on top of the Next.JS 14 using TypeScript, great UI library shadcn, Prisma and MongoDB as a database. Upload things as a S3 blob for document storage.
 </p> -->
 
 <p align="center">
@@ -74,7 +74,7 @@ You can try it here [demo.nextcrm.io](https://demo.nextcrm.io), login via Google
 
 1. More AI powered - daily summary of tasks and project (OpenAI integration) - in progress
 2. Email campaigns management - integration with MailChimp and Listmonk - in planning
-3. ~~Docker version - in planning (There will be complete bundle to run MinechatCRM on-premise)~~
+3. ~~Docker version - in planning (There will be complete bundle to run Minechat AI CRM on-premise)~~
 4. Testing - Jest + Cypress (if anyone want to help I will be very happy) - in planning
 5. Fix all Types issue (no more "any") - in progress
 6. i18n - localization - in progress (if anyone want to help I will be very happy)
@@ -88,13 +88,13 @@ We use [resend.com](https://resend.com) + [react.email](https://react.email) as 
 
 ## Reports
 
-We use Tremor charts as a tool for creating charts in MinechatCRM
+We use Tremor charts as a tool for creating charts in Minechat AI CRM
 
 ![hero](/public/reports.png)
 
 ## Video (YouTube channel with functions showcase)
 
-[Youtube Channel](https://www.youtube.com/@MinechatCRM_IO) </br>
+[Youtube Channel](https://www.youtube.com/@Minechat AI CRM_IO) </br>
 [Invoice module (video)](https://youtu.be/NSMsBMy07Pg)
 
 ## Documentation
@@ -208,13 +208,13 @@ Available soon at: http://docs.nextcrm.io
 
 ## Contributing
 
-We are open to the MinechatCRM community contributions. Every contribution is welcome.
+We are open to the Minechat AI CRM community contributions. Every contribution is welcome.
 
 ### Issues
 
 - [Open an issue](https://github.com/pdovhomilja/nextcrm-app/issues) if you find a bug or have a suggestion for improvements.
 
-### MinechatCRM Super heroes
+### Minechat AI CRM Super heroes
 
 <a href="https://github.com/pdovhomilja/nextcrm-app/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=pdovhomilja/nextcrm-app" />

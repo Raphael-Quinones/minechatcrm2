@@ -22,13 +22,13 @@ export async function GET(request: Request) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 200)
-      : "MinechatCRM";
+      : "Minechat AI CRM";
 
     const hasDescription = searchParams.has("description");
 
     const description = hasDescription
       ? searchParams.get("description")?.slice(0, 200)
-      : "MinechatCRM is an open source CRM build on top of NextJS. Technology stack: NextJS with Typescrtipt, MongoDB, TailwindCSS, React, Prisma, shadCN, resend.com, react.email and more. ";
+      : "Minechat AI CRM is an open source CRM build on top of NextJS. Technology stack: NextJS with Typescrtipt, MongoDB, TailwindCSS, React, Prisma, shadCN, resend.com, react.email and more. ";
 
     return new ImageResponse(
       (
