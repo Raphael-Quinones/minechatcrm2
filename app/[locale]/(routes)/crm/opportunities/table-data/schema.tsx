@@ -12,6 +12,7 @@ export const opportunitySchema = z.object({
   status: z.string().nullable(),
   budget: z.number().nullable(),
   expected_revenue: z.number().nullable(),
+  currency: z.string().default("USD"),
   assigned_account: z.object({}).optional().nullable(),
   assigned_sales_stage: z.object({
     name: z.string(),
