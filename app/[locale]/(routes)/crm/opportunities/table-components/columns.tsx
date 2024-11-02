@@ -36,6 +36,19 @@ export const columns: ColumnDef<Opportunity>[] = [
   },
   */
   {
+    accessorKey: "createdAt",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Created At" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[80px]">
+        {moment(row.getValue("createdAt")).format("YY-MM-DD")}
+      </div>
+    ),
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
     accessorKey: "name",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Name" />
