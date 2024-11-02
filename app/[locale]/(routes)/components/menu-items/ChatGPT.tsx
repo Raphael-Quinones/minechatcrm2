@@ -20,7 +20,7 @@ const ChatGPTModuleMenu = ({ open }: Props) => {
         className={`flex gap-2 p-2 ${isPath ? "text-muted-foreground" : null}`}
       >
         <Bot className="w-6" />
-        <span className={open ? "" : "hidden"}>Ask MinechatAI</span>
+        <span className={open ? "" : "hidden"}>Ask Minechat AI</span>
       </Link>
     </div>
   );
