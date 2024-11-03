@@ -48,6 +48,38 @@ const OpportunitiesView = ({
   const { users, accounts, contacts, saleTypes, saleStages, campaigns } =
     crmData;
 
+  const handleMineOpportunities = async () => {
+    try {
+      const response = await fetch('http://3.25.53.53:8000/analyze-facebook-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        },
+        mode: 'cors',
+        body: JSON.stringify({
+          page_id: "116011844875573",
+          access_token: "EAAESTTZCVScsBO8xJVQfZA9sOOZB7ZCR4dW3ljKPyUs5uZBMMHi2i64ljmrQdBToZClKr7PPsu3RSmTSRmIMveUT7snIAYXoMQRbZChJdoxaeuGkQHgdnMYOiq1upgWw4IGFoZBDwnYHZCTqUm3qWXyWICADGZAAuAKEQft9SKCq7MCenDZBdOLZCsMp3q8ugfDrboCh9wowHE6ffZB3gLZAfu",
+          excluded_name: "Condo Living by Justine Guerrero",
+          user_email: "wapquinones28@gmail.com"
+        })
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.text();
+        throw new Error(`Failed to mine leads: ${errorData}`);
+      }
+      
+      // Handle successful response here
+      const data = await response.json();
+      console.log('Leads mining initiated successfully:', data);
+    } catch (error) {
+      console.error('Error mining leads:', error);
+    }
+  };
+
   //console.log(accountId, "accountId");
   return (
     <Card>
@@ -63,6 +95,12 @@ const OpportunitiesView = ({
             <CardDescription></CardDescription>
           </div>
           <div className="flex space-x-2">
+            <Button 
+              className="my-2 cursor-pointer"
+              onClick={handleMineOpportunities}
+            >
+              Mine Opportunities
+            </Button>
             <Sheet open={open} onOpenChange={() => setOpen(false)}>
               <Button
                 className="my-2 cursor-pointer"
