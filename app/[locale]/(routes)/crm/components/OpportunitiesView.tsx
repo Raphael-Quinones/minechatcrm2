@@ -50,15 +50,14 @@ const OpportunitiesView = ({
 
   const handleMineOpportunities = async () => {
     try {
-      const response = await fetch('http://3.25.53.53:8000/analyze-facebook-data', {
+      const apiUrl = process.env.NEXT_PUBLIC_FACEBOOK_API_URL || 'http://3.25.53.53:8000';
+      
+      const response = await fetch(`${apiUrl}/analyze-facebook-data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
         },
-        mode: 'cors',
         body: JSON.stringify({
           page_id: "116011844875573",
           access_token: "EAAESTTZCVScsBO8xJVQfZA9sOOZB7ZCR4dW3ljKPyUs5uZBMMHi2i64ljmrQdBToZClKr7PPsu3RSmTSRmIMveUT7snIAYXoMQRbZChJdoxaeuGkQHgdnMYOiq1upgWw4IGFoZBDwnYHZCTqUm3qWXyWICADGZAAuAKEQft9SKCq7MCenDZBdOLZCsMp3q8ugfDrboCh9wowHE6ffZB3gLZAfu",
@@ -72,7 +71,6 @@ const OpportunitiesView = ({
         throw new Error(`Failed to mine leads: ${errorData}`);
       }
       
-      // Handle successful response here
       const data = await response.json();
       console.log('Leads mining initiated successfully:', data);
     } catch (error) {
