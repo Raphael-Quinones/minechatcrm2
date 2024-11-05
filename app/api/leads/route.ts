@@ -1,7 +1,14 @@
 import { prismadb } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
+  const headers = {
+    'Cache-Control': 'no-store, must-revalidate',
+    'Pragma': 'no-cache',
+  }
+
   const data = await prismadb.crm_Leads.findMany({
     include: {
       assigned_to_user: {
@@ -22,5 +29,7 @@ export async function GET() {
     updatedAt: lead.updatedAt?.toISOString() ?? new Date().toISOString(),
   }));
 
-  return NextResponse.json(serializedData);
+  return new Response(JSON.stringify(serializedData), {
+    headers: headers
+  });
 } 
