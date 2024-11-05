@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import useSWR from "swr";
+import { useRouter } from "next/navigation";
 
 import {
   Card,
@@ -15,11 +17,28 @@ import RightViewModal from "@/components/modals/right-view-modal";
 import { columns } from "../leads/table-components/columns";
 import { NewLeadForm } from "../leads/components/NewLeadForm";
 import { LeadDataTable } from "../leads/table-components/data-table";
-import { useRouter } from "next/navigation";
 
-const LeadsView = ({ data, crmData }: any) => {
+const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  const data = await res.json();
+  
+  // Transform dates back to Date objects
+  return data.map((lead: any) => ({
+    ...lead,
+    createdAt: new Date(lead.createdAt),
+    updatedAt: new Date(lead.updatedAt),
+  }));
+};
+
+const LeadsView = ({ initialData, crmData }: any) => {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
+
+  // SWR hook for real-time updates
+  const { data = initialData } = useSWR('/api/leads', fetcher, {
+    refreshInterval: 5000, // Refresh every 5 seconds
+    fallbackData: initialData,
+  });
 
   useEffect(() => {
     setIsMounted(true);
@@ -53,12 +72,11 @@ const LeadsView = ({ data, crmData }: any) => {
         <Separator />
       </CardHeader>
       <CardContent>
-        {!data ||
-          (data.length === 0 ? (
-            "No assigned leads found"
-          ) : (
-            <LeadDataTable data={data} columns={columns} />
-          ))}
+        {!data || data.length === 0 ? (
+          "No assigned leads found"
+        ) : (
+          <LeadDataTable data={data} columns={columns} />
+        )}
       </CardContent>
     </Card>
   );

@@ -12,14 +12,13 @@ const LeadsPage = async () => {
   const crmData = await getAllCrmData();
   const leads = await getLeads();
 
-  console.log(leads[0], "leads");
   return (
     <Container
       title="Leads"
       description={"Everything you need to know about your leads"}
     >
       <Suspense fallback={<SuspenseLoading />}>
-        <LeadsView crmData={crmData} data={leads} />
+        <LeadsView initialData={leads} crmData={crmData} />
       </Suspense>
     </Container>
   );
