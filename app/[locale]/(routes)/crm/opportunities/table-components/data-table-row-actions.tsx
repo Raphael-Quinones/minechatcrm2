@@ -30,6 +30,7 @@ export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
   const router = useRouter();
+  console.log(row.original, "row.original");
   const opportunity = opportunitySchema.parse(row.original);
 
   const [open, setOpen] = useState(false);

@@ -17,7 +17,7 @@ const AccountsPage = async () => {
       description={"Everything you need to know about your opportinities"}
     >
       <Suspense fallback={<SuspenseLoading />}>
-        <OpportunitiesView crmData={crmData} data={opportunities} />
+        <OpportunitiesView crmData={crmData} initialData={opportunities} />
       </Suspense>
     </Container>
   );

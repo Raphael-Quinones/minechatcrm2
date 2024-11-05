@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import useSWR from "swr";
 
 import {
   Card,
@@ -22,20 +23,28 @@ import { Separator } from "@/components/ui/separator";
 import { columns } from "../opportunities/table-components/columns";
 import { NewOpportunityForm } from "../opportunities/components/NewOpportunityForm";
 import { OpportunitiesDataTable } from "../opportunities/table-components/data-table";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const OpportunitiesView = ({
-  data,
+  initialData,
   crmData,
   accountId,
 }: {
-  data: any;
+  initialData: any;
   crmData: any;
   accountId?: string;
 }) => {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
-
   const [dialogOpen, setDialogOpen] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // Move useSWR before any conditional returns
+  const { data = initialData } = useSWR('/api/opportunities', fetcher, {
+    refreshInterval: 5000,
+    fallbackData: initialData,
+  });
 
   useEffect(() => {
     setIsMounted(true);
@@ -129,12 +138,11 @@ const OpportunitiesView = ({
         <Separator />
       </CardHeader>
       <CardContent>
-        {!data ||
-          (data.length === 0 ? (
-            "No assigned opportunities found"
-          ) : (
-            <OpportunitiesDataTable data={data} columns={columns} />
-          ))}
+        {!data || data.length === 0 ? (
+          "No assigned opportunities found"
+        ) : (
+          <OpportunitiesDataTable data={data} columns={columns} />
+        )}
       </CardContent>
     </Card>
   );
