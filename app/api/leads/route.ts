@@ -18,8 +18,8 @@ export async function GET() {
   // Transform the data to handle dates
   const serializedData = data.map(lead => ({
     ...lead,
-    createdAt: lead.createdAt.toISOString(),
-    updatedAt: lead.updatedAt.toISOString(),
+    createdAt: lead.createdAt?.toISOString() ?? new Date().toISOString(),
+    updatedAt: lead.updatedAt?.toISOString() ?? new Date().toISOString(),
   }));
 
   return NextResponse.json(serializedData);
