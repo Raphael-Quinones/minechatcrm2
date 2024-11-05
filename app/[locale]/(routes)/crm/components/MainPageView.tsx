@@ -23,7 +23,7 @@ const MainPageView = async () => {
   return (
     <>
       <AccountsView crmData={crmData} data={accounts} />
-      <OpportunitiesView crmData={crmData} data={opportunities} />
+      <OpportunitiesView crmData={crmData} initialData={opportunities} />
       <ContactsView crmData={crmData} data={contacts} />
       <LeadsView crmData={crmData} data={leads} />
       <ContractsView crmData={crmData} data={contracts} />
