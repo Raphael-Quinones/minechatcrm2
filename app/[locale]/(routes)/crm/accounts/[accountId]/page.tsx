@@ -58,7 +58,7 @@ const AccountDetailPage = async ({ params }: AccountDetailPageProps) => {
         <BasicView data={account} />
         <AccountsTasksView data={tasks} account={account} />
         <OpportunitiesView
-          data={opportunities}
+          initialData={opportunities}
           crmData={crmData}
           accountId={accountId}
         />
