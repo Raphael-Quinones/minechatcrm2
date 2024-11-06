@@ -68,7 +68,7 @@ export const columns: ColumnDef<Opportunity>[] = [
       <DataTableColumnHeader column={column} title="Description" />
     ),
     cell: ({ row }) => (
-      <div className="w-[250px] truncate">{row.getValue("description") || "No description"}</div>
+      <div className="w-[250px]">{row.getValue("description") || "No description"}</div>
     ),
     enableSorting: false,
     enableHiding: true,
@@ -112,7 +112,7 @@ export const columns: ColumnDef<Opportunity>[] = [
           {row.original.budget
             ? row.original.budget.toLocaleString("en-US", {
                 style: "currency",
-                currency: "USD",
+                currency: "PHP",
               })
             : "N/A"}
         </div>
