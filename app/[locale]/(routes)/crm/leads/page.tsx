@@ -13,14 +13,9 @@ const LeadsPage = async () => {
   const leads = await getLeads();
 
   return (
-    <Container
-      title="Leads"
-      description={"Everything you need to know about your leads"}
-    >
       <Suspense fallback={<SuspenseLoading />}>
         <LeadsView initialData={leads} crmData={crmData} />
       </Suspense>
-    </Container>
   );
 };
 
