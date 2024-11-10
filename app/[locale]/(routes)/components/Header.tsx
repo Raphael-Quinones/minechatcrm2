@@ -24,11 +24,11 @@ const Header = ({ id, name, email, avatar, lang }: Props) => {
           {/* <FulltextSearch /> */}
         </div>
         <div className="flex items-center gap-3">
-          <CommandComponent />
-          <SetLanguage userId={id} />
-          <Feedback />
+          {/* <CommandComponent /> */}
+          {/* <SetLanguage userId={id} /> */}
+          {/* <Feedback /> */}
           <ThemeToggle />
-          <SupportComponent />
+          {/* <SupportComponent /> */}
           <AvatarDropdown
             avatar={avatar}
             userId={id}
