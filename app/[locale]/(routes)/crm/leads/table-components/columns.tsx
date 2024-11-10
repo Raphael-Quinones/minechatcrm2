@@ -44,7 +44,7 @@ export const columns: ColumnDef<Lead>[] = [
       <DataTableColumnHeader column={column} title="Phone" />
     ),
 
-    cell: ({ row }) => <div className="w-[150px]">{row.getValue("phone")}</div>,
+    cell: ({ row }) => <div className="w-[100px]">{row.getValue("phone")}</div>,
     enableSorting: true,
     enableHiding: false,
   },
