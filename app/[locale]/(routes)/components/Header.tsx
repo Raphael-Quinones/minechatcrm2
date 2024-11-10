@@ -21,7 +21,7 @@ const Header = ({ id, name, email, avatar, lang }: Props) => {
     <>
       <div className="flex h-20 justify-between items-center p-5 space-x-5">
         <div className="flex justify-center ">
-          <FulltextSearch />
+          {/* <FulltextSearch /> */}
         </div>
         <div className="flex items-center gap-3">
           <CommandComponent />
