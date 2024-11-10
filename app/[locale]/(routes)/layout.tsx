@@ -75,7 +75,7 @@ export default async function AppLayout({
           lang={session.user.userLanguage as string}
         />
         <div className="flex-grow overflow-y-auto h-full p-5">{children}</div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );
