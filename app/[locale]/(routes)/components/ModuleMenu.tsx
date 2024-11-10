@@ -131,17 +131,6 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
           ) : null}
         </div>
       </div>
-
-      {/* Build Version */}
-      <div
-        className={cn("flex justify-center items-center w-full", {
-          hidden: !open,
-        })}
-      >
-        <span className="text-xs text-gray-500 pb-2">
-          build: 0.0.3-beta-{build}
-        </span>
-      </div>
     </div>
   );
 };
