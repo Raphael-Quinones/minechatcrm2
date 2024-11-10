@@ -56,7 +56,7 @@ export const columns: ColumnDef<Opportunity>[] = [
 
     cell: ({ row }) => (
       <Link href={`/crm/opportunities/${row.original.id}`}>
-        <div className="w-[250px] overflow-hidden">{row.getValue("name")}</div>
+        <div className="w-[100px] overflow-hidden">{row.getValue("name")}</div>
       </Link>
     ),
     enableSorting: true,
@@ -79,7 +79,7 @@ export const columns: ColumnDef<Opportunity>[] = [
       <DataTableColumnHeader column={column} title="Sales Type" />
     ),
     cell: ({ row }) => (
-      <div className="w-[150px]">
+      <div className="w-[100px]">
         {row.original.assigned_type?.name || "Not specified"}
       </div>
     ),
@@ -92,7 +92,7 @@ export const columns: ColumnDef<Opportunity>[] = [
       <DataTableColumnHeader column={column} title="Stage" />
     ),
     cell: ({ row }) => (
-      <div className="w-[150px]">
+      <div className="w-[50px]">
         {row.original.assigned_sales_stage?.name || "Not set"}
       </div>
     ),
@@ -127,7 +127,7 @@ export const columns: ColumnDef<Opportunity>[] = [
       <DataTableColumnHeader column={column} title="Currency" />
     ),
     cell: ({ row }) => (
-      <div className="w-[80px]">{row.getValue("currency") || "USD"}</div>
+      <div className="w-[50px]">{row.getValue("currency") || "USD"}</div>
     ),
     enableSorting: true,
     enableHiding: true,
