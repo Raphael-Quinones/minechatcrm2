@@ -38,35 +38,37 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
 
   return (
     <div className="flex flex-col">
-      <div
-        className={` ${
-          open ? "w-72" : "w-20 "
-        }  h-screen p-5  pt-8 relative duration-300`}
-      >
-        <div className="flex gap-x-4 items-center">
-          <div
-            className={`cursor-pointer duration-500 border rounded-full p-2 ${
-              open && "rotate-[360deg]"
+      {/* Logo and Toggle Button */}
+      <div className="flex items-center p-5 pt-8">
+        <div
+          className="cursor-pointer duration-500 border rounded-full p-2"
+          onClick={() => setOpen(!open)}
+        >
+          <Image
+            src="/favicon.ico"
+            alt="Menu Toggle"
+            width={16}
+            height={16}
+            className={`w-4 h-4 transition-transform duration-500 ${
+              open ? "rotate-[360deg]" : ""
             }`}
-            onClick={() => setOpen(!open)}
-          >
-            <Image
-              src="/favicon.ico"
-              alt="Menu Toggle"
-              width={16}
-              height={16}
-              className="w-4 h-4"
-            />
-          </div>
+          />
+        </div>
 
-          <h1
-            className={` origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
-            }`}
-          >
+        {/* App Name */}
+        {open && (
+          <h1 className="ml-4 origin-left font-medium text-xl whitespace-nowrap">
             {process.env.NEXT_PUBLIC_APP_NAME}
           </h1>
-        </div>
+        )}
+      </div>
+
+      {/* Sidebar Menu */}
+      <div
+        className={`flex-1 h-screen p-5 pt-2 relative duration-300 ${
+          open ? "w-72" : "w-20"
+        }`}
+      >
         <div className="pt-6">
           <DashboardMenu open={open} title={dict.ModuleMenu.dashboard} />
           {modules.find(
@@ -85,8 +87,7 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
             <EmailsModuleMenu open={open} title={dict.ModuleMenu.emails} />
           ) : null}
           {modules.find(
-            (menuItem: any) =>
-              menuItem.name === "secondBrain" && menuItem.enabled
+            (menuItem: any) => menuItem.name === "secondBrain" && menuItem.enabled
           ) ? (
             <SecondBrainModuleMenu open={open} />
           ) : null}
@@ -130,6 +131,8 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
           ) : null}
         </div>
       </div>
+
+      {/* Build Version */}
       <div
         className={cn("flex justify-center items-center w-full", {
           hidden: !open,
