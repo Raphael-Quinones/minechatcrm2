@@ -41,15 +41,15 @@ const ModuleMenu = ({ modules, dict, build }: Props) => {
       {/* Logo and Toggle Button */}
       <div className="flex items-center p-5 pt-8">
         <div
-          className="cursor-pointer duration-500 border rounded-full p-2"
+          className="cursor-pointer duration-500 rounded-full p-0 w-8 h-8 flex items-center justify-center"
           onClick={() => setOpen(!open)}
         >
           <Image
             src="/favicon.ico"
             alt="Menu Toggle"
-            width={16}
-            height={16}
-            className={`w-4 h-4 transition-transform duration-500 ${
+            width={24}
+            height={24}
+            className={`w-6 h-6 transition-transform duration-500 ${
               open ? "rotate-[360deg]" : ""
             }`}
           />
