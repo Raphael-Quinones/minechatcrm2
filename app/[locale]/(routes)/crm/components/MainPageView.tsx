@@ -17,13 +17,12 @@ const MainPageView = async () => {
   const crmData = await getAllCrmData();
   const accounts = await getAccounts();
   const contacts = await getContacts();
-  const opportunities = await getOpportunitiesFull();
   const leads = await getLeads();
   const contracts = await getContractsWithIncludes();
   return (
     <>
       <AccountsView crmData={crmData} data={accounts} />
-      <OpportunitiesView crmData={crmData} initialData={opportunities} />
+      <OpportunitiesView crmData={crmData} />
       <ContactsView crmData={crmData} data={contacts} />
       <LeadsView crmData={crmData} data={leads} />
       <ContractsView crmData={crmData} data={contracts} />

@@ -9,11 +9,10 @@ import { getOpportunitiesFull } from "@/actions/crm/get-opportunities-with-inclu
 
 const AccountsPage = async () => {
   const crmData = await getAllCrmData();
-  const opportunities = await getOpportunitiesFull();
 
   return (
       <Suspense fallback={<SuspenseLoading />}>
-        <OpportunitiesView crmData={crmData} initialData={opportunities} />
+        <OpportunitiesView crmData={crmData} />
       </Suspense>
   );
 };

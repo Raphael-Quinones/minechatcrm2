@@ -32,7 +32,7 @@ const ContactViewPage = async ({ params }: any) => {
       <div className="space-y-5">
         <BasicView data={contact} />
         <AccountsView data={accounts} crmData={crmData} />
-        <OpportunitiesView initialData={opportunities} crmData={crmData} />
+        <OpportunitiesView crmData={crmData} />
         <DocumentsView data={documents} />
       </div>
     </Container>

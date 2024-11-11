@@ -27,11 +27,9 @@ import { OpportunitiesDataTable } from "../opportunities/table-components/data-t
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const OpportunitiesView = ({
-  initialData,
   crmData,
   accountId,
 }: {
-  initialData: any;
   crmData: any;
   accountId?: string;
 }) => {
@@ -40,10 +38,8 @@ const OpportunitiesView = ({
   const [dialogOpen, setDialogOpen] = useState(false);
   const [open, setOpen] = useState(false);
 
-  // Move useSWR before any conditional returns
-  const { data = initialData } = useSWR('/api/opportunities', fetcher, {
+  const { data } = useSWR('/api/opportunities', fetcher, {
     refreshInterval: 5000,
-    fallbackData: initialData,
   });
 
   useEffect(() => {
