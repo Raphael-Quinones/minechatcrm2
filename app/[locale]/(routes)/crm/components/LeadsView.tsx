@@ -30,14 +30,13 @@ const fetcher = async (url: string) => {
   }));
 };
 
-const LeadsView = ({ initialData, crmData }: any) => {
+const LeadsView = ({ crmData }: any) => {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
 
   // SWR hook for real-time updates
-  const { data = initialData } = useSWR('/api/leads', fetcher, {
+  const { data } = useSWR('/api/leads', fetcher, {
     refreshInterval: 5000, // Refresh every 5 seconds
-    fallbackData: initialData,
   });
 
   useEffect(() => {
