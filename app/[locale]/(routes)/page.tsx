@@ -65,7 +65,7 @@ const DashboardPage = async () => {
   const users = await getActiveUsersCount();
   const accounts = await getAccountsCount();
   const invoices = await getInvoicesCount();
-  const revenue = await getExpectedRevenue();
+  const revenue = await getExpectedRevenue(userId);
   const documents = await getDocumentsCount();
   const opportunities = await getOpportunitiesCount();
   const usersTasks = await getUsersTasksCount(userId);
