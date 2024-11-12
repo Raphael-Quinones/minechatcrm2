@@ -12,13 +12,20 @@ import ContactsView from "./ContactsView";
 import OpportunitiesView from "./OpportunitiesView";
 import LeadsView from "./LeadsView";
 import ContractsView from "./ContractsView";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 const MainPageView = async () => {
+  const session = await getServerSession(authOptions);
+
+  if (!session) return null;
+
+  const userId = session?.user?.id;
   const crmData = await getAllCrmData();
-  const accounts = await getAccounts();
-  const contacts = await getContacts();
+  const accounts = await getAccounts(userId);
+  const contacts = await getContacts(userId);
   const leads = await getLeads();
-  const contracts = await getContractsWithIncludes();
+  const contracts = await getContractsWithIncludes(userId);
   return (
     <>
       <AccountsView crmData={crmData} data={accounts} />

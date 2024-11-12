@@ -5,10 +5,17 @@ import Container from "../../components/ui/Container";
 import SuspenseLoading from "@/components/loadings/suspense";
 import { getAllCrmData } from "@/actions/crm/get-crm-data";
 import { getAccounts } from "@/actions/crm/get-accounts";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 const AccountsPage = async () => {
+  const session = await getServerSession(authOptions);
+
+  if (!session) return null;
+
+  const userId = session?.user?.id;
   const crmData = await getAllCrmData();
-  const accounts = await getAccounts();
+  const accounts = await getAccounts(userId);
 
   return (
     <Container

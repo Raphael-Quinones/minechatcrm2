@@ -6,10 +6,17 @@ import Container from "../../components/ui/Container";
 import ContactsView from "../components/ContactsView";
 import { getContacts } from "@/actions/crm/get-contacts";
 import { getAllCrmData } from "@/actions/crm/get-crm-data";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 const AccountsPage = async () => {
+  const session = await getServerSession(authOptions);
+
+  if (!session) return null;
+
+  const userId = session?.user?.id;
   const crmData = await getAllCrmData();
-  const contacts = await getContacts();
+  const contacts = await getContacts(userId);
   return (
     <Container
       title="Contacts"

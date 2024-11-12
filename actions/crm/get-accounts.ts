@@ -1,7 +1,10 @@
 import { prismadb } from "@/lib/prisma";
 
-export const getAccounts = async () => {
+export const getAccounts = async (userSessionId: string) => {
   const data = await prismadb.crm_Accounts.findMany({
+    where: {
+      createdBy: userSessionId,
+    },
     include: {
       assigned_to_user: {
         select: {
