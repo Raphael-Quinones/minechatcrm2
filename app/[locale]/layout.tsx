@@ -78,7 +78,7 @@ export default async function RootLayout({
         <meta property="og:image" content="https://nextcrm.io/api/og" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="nextcrm.io" />
+        <meta property="twitter:domain" content="crm.minechat.ai" />
         <meta property="twitter:url" content="https://www.nextcrm.io" />
         <meta name="twitter:title" content="Minechat AI CRM" />
         <meta
