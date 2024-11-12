@@ -41,12 +41,12 @@ const CrmModuleMenu = ({ open, localizations }: Props) => {
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-[250px] ml-10">
-          <DropdownMenuItem onClick={() => router.push("/crm/dashboard")}>
+          {/* <DropdownMenuItem onClick={() => router.push("/crm/dashboard")}>
             Dashboard
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => router.push("/crm/dashboard/user")}>
             My Dashboard
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem onClick={() => router.push("/crm")}>
             Overview
           </DropdownMenuItem>
