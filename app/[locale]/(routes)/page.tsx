@@ -55,13 +55,13 @@ const DashboardPage = async () => {
   const dict = await getDictionary(lang as "en" | "cz" | "de" | "uk"); //Fetch data for dashboard
 
   const modules = await getModules();
-  const leads = await getLeadsCount();
+  const leads = await getLeadsCount(userId);
   const tasks = await getTasksCount();
   const employees = await getEmployees();
   const storage = await getStorageSize();
   const projects = await getBoardsCount();
-  const contacts = await getContactCount();
-  const contracts = await getContractsCount();
+  const contacts = await getContactCount(userId);
+  const contracts = await getContractsCount(userId);
   const users = await getActiveUsersCount();
   const accounts = await getAccountsCount(userId);
   const invoices = await getInvoicesCount();
