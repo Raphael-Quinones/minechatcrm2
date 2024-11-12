@@ -67,7 +67,7 @@ const DashboardPage = async () => {
   const invoices = await getInvoicesCount();
   const revenue = await getExpectedRevenue(userId);
   const documents = await getDocumentsCount();
-  const opportunities = await getOpportunitiesCount();
+  const opportunities = await getOpportunitiesCount(userId);
   const usersTasks = await getUsersTasksCount(userId);
 
   //Find which modules are enabled
