@@ -122,24 +122,6 @@ const DashboardPage = async () => {
             </CardContent>
           </Card>
         </Suspense>
-
-        <DashboardCard
-          href="/admin/users"
-          title={dict.DashboardPage.activeUsers}
-          IconComponent={UserIcon}
-          content={users}
-        />
-        {
-          //show crm module only if enabled is true
-          employeesModule?.enabled && (
-            <DashboardCard
-              href="/employees"
-              title="Employees"
-              IconComponent={Users2Icon}
-              content={employees.length}
-            />
-          )
-        }
         {
           //show crm module only if enabled is true
           crmModule?.enabled && (
