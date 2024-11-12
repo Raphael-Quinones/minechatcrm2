@@ -189,16 +189,16 @@ const DashboardPage = async () => {
             content={invoices}
           />
         )}
-        {documentsModule?.enabled && (
+        {/* {documentsModule?.enabled && (
           <DashboardCard
             href="/documents"
             title={dict.DashboardPage.documents}
             IconComponent={CoinsIcon}
             content={documents}
           />
-        )}
+        )} */}
 
-        <StorageQuota actual={storage} title={dict.DashboardPage.storage} />
+        {/* <StorageQuota actual={storage} title={dict.DashboardPage.storage} /> */}
 
         {secondBrainModule?.enabled && (
           <Suspense fallback={<LoadingBox />}>
