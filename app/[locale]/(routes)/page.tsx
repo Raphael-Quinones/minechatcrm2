@@ -63,7 +63,7 @@ const DashboardPage = async () => {
   const contacts = await getContactCount();
   const contracts = await getContractsCount();
   const users = await getActiveUsersCount();
-  const accounts = await getAccountsCount();
+  const accounts = await getAccountsCount(userId);
   const invoices = await getInvoicesCount();
   const revenue = await getExpectedRevenue(userId);
   const documents = await getDocumentsCount();
