@@ -17,6 +17,8 @@ import RightViewModal from "@/components/modals/right-view-modal";
 import { columns } from "../leads/table-components/columns";
 import { NewLeadForm } from "../leads/components/NewLeadForm";
 import { LeadDataTable } from "../leads/table-components/data-table";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -30,14 +32,15 @@ const fetcher = async (url: string) => {
   }));
 };
 
-const LeadsView = ({ crmData }: any) => {
+const LeadsView = ({ crmData, initialData }: any) => {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
 
   // SWR hook for real-time updates
-  const { data } = useSWR('/api/leads', fetcher, {
-    refreshInterval: 5000, // Refresh every 5 seconds
-  });
+  // const { data } = useSWR('/api/leads', fetcher, {
+  //   refreshInterval: 5000, // Refresh every 5 seconds
+  // });
+  // Uncomment this and change initialData to data to use auto refresh for live pipeline
 
   useEffect(() => {
     setIsMounted(true);
@@ -71,10 +74,10 @@ const LeadsView = ({ crmData }: any) => {
         <Separator />
       </CardHeader>
       <CardContent>
-        {!data || data.length === 0 ? (
+        {!initialData || initialData.length === 0 ? (
           "No assigned leads found"
         ) : (
-          <LeadDataTable data={data} columns={columns} />
+          <LeadDataTable data={initialData} columns={columns} />
         )}
       </CardContent>
     </Card>

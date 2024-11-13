@@ -24,7 +24,7 @@ const MainPageView = async () => {
   const crmData = await getAllCrmData();
   const accounts = await getAccounts(userId);
   const contacts = await getContacts(userId);
-  const leads = await getLeads();
+  const leads = await getLeads(userId);
   const contracts = await getContractsWithIncludes(userId);
   return (
     <>

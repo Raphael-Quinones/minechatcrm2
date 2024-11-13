@@ -9,6 +9,7 @@ import { getAllCrmData } from "@/actions/crm/get-crm-data";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 
+
 const AccountsPage = async () => {
   const session = await getServerSession(authOptions);
 
