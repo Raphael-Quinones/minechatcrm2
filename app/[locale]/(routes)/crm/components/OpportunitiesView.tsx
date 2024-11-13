@@ -29,18 +29,21 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const OpportunitiesView = ({
   crmData,
   accountId,
+  initialData,
 }: {
   crmData: any;
   accountId?: string;
+  initialData: any;
 }) => {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const { data } = useSWR('/api/opportunities', fetcher, {
-    refreshInterval: 5000,
-  });
+  // const { data } = useSWR('/api/opportunities', fetcher, {
+  //   refreshInterval: 5000,
+  // });
+  // Uncomment if you want to use auto refresh for live pipeline
 
   useEffect(() => {
     setIsMounted(true);
@@ -134,10 +137,10 @@ const OpportunitiesView = ({
         <Separator />
       </CardHeader>
       <CardContent>
-        {!data || data.length === 0 ? (
+        {!initialData || initialData.length === 0 ? (
           "No assigned opportunities found"
         ) : (
-          <OpportunitiesDataTable data={data} columns={columns} />
+          <OpportunitiesDataTable data={initialData} columns={columns} />
         )}
       </CardContent>
     </Card>

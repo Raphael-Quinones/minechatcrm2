@@ -60,6 +60,7 @@ const AccountDetailPage = async ({ params }: AccountDetailPageProps) => {
         <OpportunitiesView
           crmData={crmData}
           accountId={accountId}
+          initialData={opportunities}
         />
         <ContactsView data={contacts} crmData={crmData} accountId={accountId} />
         <ContractsView

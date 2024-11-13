@@ -2,8 +2,11 @@
 
 import { prismadb } from "@/lib/prisma";
 
-export const getOpportunitiesFull = async () => {
+export const getOpportunitiesFull = async (userSessionId: string) => {
   const data = await prismadb.crm_Opportunities.findMany({
+    where: {
+      createdBy: userSessionId,
+    },
     include: {
       assigned_account: {
         select: {
