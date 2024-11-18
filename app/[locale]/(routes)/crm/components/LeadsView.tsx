@@ -37,9 +37,9 @@ const LeadsView = ({ crmData, initialData }: any) => {
   const [isMounted, setIsMounted] = useState(false);
 
   // SWR hook for real-time updates
-  // const { data } = useSWR('/api/leads', fetcher, {
-  //   refreshInterval: 5000, // Refresh every 5 seconds
-  // });
+  const { data } = useSWR('/api/leads', fetcher, {
+    refreshInterval: 5000, // Refresh every 5 seconds
+  });
   // Uncomment this and change initialData to data to use auto refresh for live pipeline
 
   useEffect(() => {
@@ -74,10 +74,10 @@ const LeadsView = ({ crmData, initialData }: any) => {
         <Separator />
       </CardHeader>
       <CardContent>
-        {!initialData || initialData.length === 0 ? (
+        {!data || data.length === 0 ? (
           "No assigned leads found"
         ) : (
-          <LeadDataTable data={initialData} columns={columns} />
+          <LeadDataTable data={data} columns={columns} />
         )}
       </CardContent>
     </Card>
